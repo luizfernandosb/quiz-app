@@ -1,7 +1,14 @@
+import Home from "./pages/home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Questions from "./pages/game";
+
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/questions" element={<Questions />} />
+      </Routes>
+    </Router>
+  );
 }
