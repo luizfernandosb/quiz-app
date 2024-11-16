@@ -5,7 +5,7 @@ export default function Questions() {
   const [answers, setAnswers] = useState<string[]>([]); // Armazenar respostas
   const [locked, setLocked] = useState<boolean[]>([]); // Controle de se a pergunta já foi respondida
 
-  const handleResult = (event: React.MouseEvent<HTMLElement>, questionId: string, answer: string) => {
+  const handleResult = (questionId: string, answer: string) => {
     if (locked[parseInt(questionId)]) return; // Impede seleção se a pergunta já foi respondida
 
     setAnswers((prevAnswers) => {
@@ -52,7 +52,7 @@ export default function Questions() {
               return (
                 <li
                   key={idx}
-                  onClick={(event) => handleResult(event, String(index), el)}
+                  onClick={() => handleResult( String(index), el)}
                   className={optionClass}
                 >
                   {el}
